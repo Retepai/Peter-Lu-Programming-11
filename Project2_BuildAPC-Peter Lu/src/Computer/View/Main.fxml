@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<TabPane fx:id="tbdpMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Computer.Controller">
+  <tabs>
+      <Tab fx:id="homtab" onSelectionChanged="#onhome" text="Home">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnhomeNext" layoutX="814.0" layoutY="616.0" mnemonicParsing="false" onAction="#homeNext" text="Next" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="345.0" layoutY="61.0" prefHeight="58.0" prefWidth="229.0" text="Build A PC">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="homeimage" fitHeight="487.0" fitWidth="532.0" layoutX="193.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+    <Tab fx:id="Cputab" disable="true" text="Processor">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnCpunext" disable="true" layoutX="834.0" layoutY="616.0" mnemonicParsing="false" onAction="#Cpunext" text="Next" />
+                  <Button fx:id="btnCpuback" layoutX="14.0" layoutY="616.0" mnemonicParsing="false" onAction="#Cpuback" text="Back" />
+                  <ListView fx:id="AMDCpuView" layoutX="21.0" layoutY="145.0" onMouseClicked="#AMDcpuspecs" prefHeight="157.0" prefWidth="258.0" />
+                  <ImageView fx:id="cpuimage" fitHeight="150.0" fitWidth="200.0" layoutX="429.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="21.0" layoutY="31.0" prefHeight="42.0" prefWidth="116.0" text="CPU Section">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="327.0" layoutY="236.0" prefHeight="326.0" prefWidth="404.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="326.0" prefWidth="201.0" spacing="20.0">
+                           <children>
+                              <Label text="processor" />
+                              <Label text="manufacturer" />
+                              <Label text="cores" />
+                              <Label text="threads" />
+                              <Label text="processor speed" />
+                              <Label text="max boost clock speed" />
+                              <Label text="thermal design power" />
+                              <Label text="socket" />
+                              <Label text="rank" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="326.0" prefWidth="207.0" spacing="20.0">
+                           <children>
+                              <Label fx:id="lblcpuname" />
+                              <Label fx:id="lblmanu" />
+                              <Label fx:id="lblcpucores" />
+                              <Label fx:id="lblcputhreads" />
+                              <Label fx:id="lblcpuspeed" />
+                              <Label fx:id="lblcpuboost" />
+                              <Label fx:id="lblcputdp" />
+                              <Label fx:id="lblcpusocket" />
+                              <Label fx:id="lblcpurank" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblprice" layoutX="513.0" layoutY="203.0" />
+                  <ListView fx:id="IntelCpuView" layoutX="30.0" layoutY="396.0" onMouseClicked="#IntelCpuSpecs" prefHeight="157.0" prefWidth="258.0" />
+                  <Label layoutX="22.0" layoutY="106.0" text="AMD CPUs" />
+                  <Label layoutX="22.0" layoutY="355.0" text="Intel CPUs" />
+                  <Button fx:id="btncpuadd" disable="true" layoutX="501.0" layoutY="601.0" mnemonicParsing="false" onAction="#cpuaddtocart" text="+add" />
+               </children>
+            </Pane>
+         </content>
+    </Tab>
+      <Tab fx:id="mobotab" disable="true" text="Motherboard">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnmobonext" disable="true" layoutX="834.0" layoutY="616.0" mnemonicParsing="false" onAction="#mobonext" text="Next" />
+                  <Button fx:id="btnmoboback" layoutX="14.0" layoutY="616.0" mnemonicParsing="false" onAction="#moboback" text="Back" />
+                  <ListView fx:id="MoboView" layoutX="21.0" layoutY="145.0" onMouseClicked="#MoboSpecs" prefHeight="438.0" prefWidth="320.0" />
+                  <ImageView fx:id="moboimage" fitHeight="194.0" fitWidth="293.0" layoutX="446.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="21.0" layoutY="31.0" prefHeight="42.0" prefWidth="206.0" text="Motherboard Section">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="390.0" layoutY="304.0" prefHeight="219.0" prefWidth="404.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="326.0" prefWidth="201.0" spacing="20.0">
+                           <children>
+                              <Label text="motherboard" />
+                              <Label text="manufacturer" />
+                              <Label text="socket" />
+                              <Label text="rank" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="219.0" prefWidth="277.0" spacing="20.0">
+                           <children>
+                              <Label fx:id="lblmoboname" />
+                              <Label fx:id="lblmobomanu" />
+                              <Label fx:id="lblmobosocket" />
+                              <Label fx:id="lblmoborank" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblmoboprice" layoutX="557.0" layoutY="254.0" prefHeight="21.0" prefWidth="86.0" />
+                  <Label layoutX="22.0" layoutY="106.0" text="All" />
+                  <Label layoutX="152.0" layoutY="105.0" prefHeight="23.0" prefWidth="174.0" text="compatible Motherboards" />
+                  <Label fx:id="lblcompatcpu" layoutX="47.0" layoutY="106.0" text="intel processor" />
+                  <Button fx:id="btnaddmobo" disable="true" layoutX="560.0" layoutY="552.0" mnemonicParsing="false" onAction="#addmobo" text="+add" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+      <Tab fx:id="ramtab" disable="true" text="Ram">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnramnext" disable="true" layoutX="834.0" layoutY="616.0" mnemonicParsing="false" onAction="#ramnext" text="Next" />
+                  <Button fx:id="btnramback" layoutX="14.0" layoutY="616.0" mnemonicParsing="false" onAction="#ramback" text="Back" />
+                  <ListView fx:id="RamView" layoutX="21.0" layoutY="136.0" onMouseClicked="#RamSpecs" prefHeight="447.0" prefWidth="269.0" />
+                  <ImageView fx:id="ramimage" fitHeight="154.0" fitWidth="288.0" layoutX="445.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="21.0" layoutY="31.0" prefHeight="42.0" prefWidth="128.0" text="Ram Section">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="387.0" layoutY="236.0" prefHeight="356.0" prefWidth="404.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="326.0" prefWidth="201.0" spacing="20.0">
+                           <children>
+                              <Label text="ram" />
+                              <Label text="manufacturer" />
+                              <Label text="capacity" />
+                              <Label text="sticks" />
+                              <Label text="speed" />
+                              <Label text="latency" />
+                              <Label text="type" />
+                              <Label text="rank" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="291.0" prefWidth="337.0" spacing="20.0">
+                           <children>
+                              <Label fx:id="lblramname" />
+                              <Label fx:id="lblrammanu" />
+                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="240.0" spacing="40.0">
+                                 <children>
+                                    <Button fx:id="btn8gbram" disable="true" mnemonicParsing="false" onAction="#ram8gboptn" text="8GB" />
+                                    <Button fx:id="btn16gbram" disable="true" mnemonicParsing="false" onAction="#ram16gboptn" text="16GB" />
+                                    <Button fx:id="btnram32gb" disable="true" mnemonicParsing="false" onAction="#ram32gb" text="32GB" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="270.0" spacing="40.0">
+                                 <children>
+                                    <Button fx:id="btnramx2" disable="true" mnemonicParsing="false" onAction="#ram2sets" text="x2" />
+                                    <Button fx:id="btnramx4" disable="true" mnemonicParsing="false" onAction="#ram4sets" text="x4" />
+                                 </children>
+                              </HBox>
+                              <Label fx:id="lblramspeed" />
+                              <Label fx:id="lblramlat" />
+                              <Label fx:id="lblramtype" />
+                              <Label fx:id="lblramrank" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblramprice" layoutX="545.0" layoutY="225.0" prefHeight="21.0" prefWidth="86.0" />
+                  <Label layoutX="22.0" layoutY="106.0" prefHeight="21.0" prefWidth="77.0" text="All Ram" />
+                  <Button fx:id="btnaddram" disable="true" layoutX="560.0" layoutY="601.0" mnemonicParsing="false" onAction="#addram" text="+add" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+    <Tab fx:id="gputab" disable="true" text="Graphics Card">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnGpunext" disable="true" layoutX="834.0" layoutY="616.0" mnemonicParsing="false" onAction="#gpunext" text="Next" />
+                  <Button fx:id="btnGpuback" layoutX="14.0" layoutY="616.0" mnemonicParsing="false" onAction="#gpuback" text="Back" />
+                  <ListView fx:id="Nvidiagpuview" layoutX="21.0" layoutY="145.0" onMouseClicked="#Nvidiagpuspecs" prefHeight="157.0" prefWidth="258.0" />
+                  <ImageView fx:id="gpuimage" fitHeight="150.0" fitWidth="200.0" layoutX="433.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="21.0" layoutY="31.0" prefHeight="42.0" prefWidth="116.0" text="GPU Section">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="348.0" layoutY="257.0" prefHeight="326.0" prefWidth="404.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="326.0" prefWidth="201.0" spacing="20.0">
+                           <children>
+                              <Label text="graphics processing unit" />
+                              <Label text="manufacturer" />
+                              <Label text="cores" />
+                              <Label text="max boost clock" />
+                              <Label text="thermal design power" />
+                              <Label text="fans" />
+                              <Label text="vram" />
+                              <Label text="rank" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="326.0" prefWidth="207.0" spacing="20.0">
+                           <children>
+                              <Label fx:id="lblgpuname" />
+                              <Label fx:id="lblgpumanu" />
+                              <Label fx:id="lblgpucores" />
+                              <Label fx:id="lblgpumaxspeed" />
+                              <Label fx:id="lblgputdp" />
+                              <Label fx:id="lblgpufans" />
+                              <Label fx:id="lblgpuvram" />
+                              <Label fx:id="lblgpurank" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblgpuprice" layoutX="516.0" layoutY="236.0" />
+                  <ListView fx:id="AMDgpuview" layoutX="30.0" layoutY="396.0" onMouseClicked="#AMDgpuspecs" prefHeight="157.0" prefWidth="258.0" />
+                  <Label layoutX="22.0" layoutY="106.0" text="Nvidia GPUs" />
+                  <Label layoutX="22.0" layoutY="355.0" text="AMD GPUs" />
+                  <Button fx:id="btnaddgpu" disable="true" layoutX="501.0" layoutY="601.0" mnemonicParsing="false" onAction="#addgpu" text="+add" />
+               </children>
+            </Pane>
+         </content>
+    </Tab>
+      <Tab fx:id="ssdtab" disable="true" text="Storage">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnssdnext" disable="true" layoutX="834.0" layoutY="616.0" mnemonicParsing="false" onAction="#ssdnext" text="Next" />
+                  <Button fx:id="btnssdback" layoutX="14.0" layoutY="616.0" mnemonicParsing="false" onAction="#ssdback" text="Back" />
+                  <ListView fx:id="StorageView" layoutX="21.0" layoutY="136.0" onMouseClicked="#StorageSpecs" prefHeight="447.0" prefWidth="269.0" />
+                  <ImageView fx:id="storageimage" fitHeight="154.0" fitWidth="256.0" layoutX="432.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="21.0" layoutY="31.0" prefHeight="42.0" prefWidth="151.0" text="Storage Section">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="387.0" layoutY="236.0" prefHeight="356.0" prefWidth="404.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="326.0" prefWidth="201.0" spacing="20.0">
+                           <children>
+                              <Label text="Storage" />
+                              <Label text="manufacturer" />
+                              <Label text="capacity" />
+                              <Label text="read speed" />
+                              <Label text="write speed" />
+                              <Label text="type" />
+                              <Label text="dram" />
+                              <Label text="rank" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="291.0" prefWidth="337.0" spacing="20.0">
+                           <children>
+                              <Label fx:id="lblstoragename" />
+                              <Label fx:id="lblstoragemanu" />
+                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="240.0" spacing="40.0">
+                                 <children>
+                                    <Button fx:id="btn500gbstrge" disable="true" mnemonicParsing="false" onAction="#storage500gb" text="500GB" />
+                                    <Button fx:id="btn1tbstrge" disable="true" mnemonicParsing="false" onAction="#storage1tb" text="1TB" />
+                                    <Button fx:id="btn2tbstrge" disable="true" mnemonicParsing="false" onAction="#storage2tb" text="2TB" />
+                                 </children>
+                              </HBox>
+                              <Label fx:id="lblstorageread" />
+                              <Label fx:id="lblstoragewrite" />
+                              <Label fx:id="lblstoragetype" />
+                              <Label fx:id="lblstoragedram" />
+                              <Label fx:id="lblstoragerank" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblstorageprice" layoutX="545.0" layoutY="225.0" prefHeight="21.0" prefWidth="86.0" />
+                  <Label layoutX="22.0" layoutY="106.0" prefHeight="21.0" prefWidth="77.0" text="All Storage" />
+                  <Button fx:id="btnaddstrge" disable="true" layoutX="560.0" layoutY="601.0" mnemonicParsing="false" onAction="#addstorage" text="+add" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+      <Tab fx:id="psutab" disable="true" text="PSU">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnpsunext" disable="true" layoutX="834.0" layoutY="616.0" mnemonicParsing="false" onAction="#psunext" text="Next" />
+                  <Button fx:id="btnPsuback" layoutX="14.0" layoutY="616.0" mnemonicParsing="false" onAction="#psuback" text="Back" />
+                  <ListView fx:id="PsuView" layoutX="21.0" layoutY="136.0" onMouseClicked="#PsuSpecs" prefHeight="447.0" prefWidth="269.0" />
+                  <ImageView fx:id="psuimage" fitHeight="154.0" fitWidth="253.0" layoutX="434.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="21.0" layoutY="31.0" prefHeight="42.0" prefWidth="212.0" text="Power Supply Section">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="386.0" layoutY="283.0" prefHeight="251.0" prefWidth="404.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="251.0" prefWidth="183.0" spacing="30.0">
+                           <children>
+                              <Label text="required wattage:" />
+                              <Label text="power supply unit" />
+                              <Label text="manufacturer" />
+                              <Label text="wattage" />
+                              <Label text="rating" />
+                              <Label text="rank" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="230.0" spacing="25.0">
+                           <children>
+                              <Label fx:id="lblpsurequiredwat" />
+                              <Label fx:id="lblpsuname" />
+                              <Label fx:id="lblpsumanu" />
+                              <Label fx:id="lblpsuwat" />
+                              <HBox alignment="CENTER" prefHeight="28.0" prefWidth="270.0" spacing="30.0">
+                                 <children>
+                                    <ImageView fx:id="psuratingimage" fitHeight="39.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="lblpsuratingtxt" />
+                                 </children>
+                              </HBox>
+                              <Label fx:id="lblpsurank" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblpsuprice" layoutX="517.0" layoutY="194.0" prefHeight="21.0" prefWidth="86.0" />
+                  <Label layoutX="22.0" layoutY="106.0" prefHeight="21.0" prefWidth="77.0" text="All PSUs" />
+                  <Button fx:id="btnaddpsu" disable="true" layoutX="560.0" layoutY="601.0" mnemonicParsing="false" onAction="#addpsu" text="+add" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+      <Tab fx:id="casetab" disable="true" text="Case">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btncasenext" disable="true" layoutX="834.0" layoutY="616.0" mnemonicParsing="false" onAction="#casenext" text="Next" />
+                  <Button fx:id="btncaseback" layoutX="14.0" layoutY="616.0" mnemonicParsing="false" onAction="#caseback" text="Back" />
+                  <ListView fx:id="CaseView" layoutX="21.0" layoutY="136.0" onMouseClicked="#CaseSpecs" prefHeight="447.0" prefWidth="269.0" />
+                  <ImageView fx:id="caseimage" fitHeight="309.0" fitWidth="388.0" layoutX="394.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="21.0" layoutY="31.0" prefHeight="42.0" prefWidth="212.0" text="Case Section">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="400.0" layoutY="398.0" prefHeight="185.0" prefWidth="376.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="251.0" prefWidth="183.0" spacing="30.0">
+                           <children>
+                              <Label text="case" />
+                              <Label text="manufacturer" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="226.0" spacing="20.0">
+                           <children>
+                              <Label fx:id="lblcasename" />
+                              <Label fx:id="lblcasemanu" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblcaseprice" layoutX="545.0" layoutY="360.0" prefHeight="21.0" prefWidth="86.0" />
+                  <Label layoutX="22.0" layoutY="106.0" prefHeight="21.0" prefWidth="77.0" text="All Models" />
+                  <Button fx:id="btnaddcase" disable="true" layoutX="560.0" layoutY="601.0" mnemonicParsing="false" onAction="#addcase" text="+add" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+      <Tab fx:id="endtab" onSelectionChanged="#onoverview" text="Overview">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ListView fx:id="ComputerView" layoutX="25.0" layoutY="43.0" onMouseClicked="#viewallparts" prefHeight="205.0" prefWidth="840.0" />
+                  <Label layoutX="30.0" layoutY="14.0" text="Seleted Parts:" />
+                  <HBox layoutX="18.0" layoutY="339.0" prefHeight="326.0" prefWidth="864.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="180.0" spacing="30.0">
+                           <children>
+                              <Label text="Overall Score" />
+                              <Label text="fps/$" />
+                              <Label text="Gaming " />
+                              <Label text="Desktop" />
+                              <Label text="Workstation" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="316.0" prefWidth="199.0" spacing="30.0">
+                           <children>
+                              <Label fx:id="lbloverallscore" />
+                              <Label fx:id="lblfps$" />
+                              <Label fx:id="lblgamerating" />
+                              <Label fx:id="lbldesktoprating" />
+                              <Label fx:id="lblworkrating" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="315.0" prefWidth="254.0" spacing="3.0">
+                           <children>
+                              <ImageView fx:id="pubgimage" fitHeight="65.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="valimage" fitHeight="65.0" fitWidth="107.0" layoutX="79.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="fortimage" fitHeight="65.0" fitWidth="107.0" layoutX="79.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="gtaimage" fitHeight="65.0" fitWidth="107.0" layoutX="79.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="csimage" fitHeight="65.0" fitWidth="107.0" layoutX="79.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="326.0" prefWidth="208.0" spacing="48.0">
+                           <children>
+                              <Label fx:id="lblpubgfps" />
+                              <Label fx:id="lblvalfps" />
+                              <Label fx:id="lblfortfps" />
+                              <Label fx:id="lblgtafps" />
+                              <Label fx:id="lblcsfps" />
+                           </children></VBox>
+                     </children>
+                  </HBox>
+                  <Label layoutX="21.0" layoutY="319.0" text="Performance Overview" />
+                  <Button fx:id="btnremove" layoutX="25.0" layoutY="260.0" mnemonicParsing="false" onAction="#componentremove" text="remove" />
+                  <Button fx:id="btnsave" layoutX="583.0" layoutY="10.0" mnemonicParsing="false" onAction="#savebuild" text="save" />
+                  <Button fx:id="btnload" layoutX="634.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadbuild" text="load" />
+                  <TextField fx:id="txtbuildfilename" layoutX="688.0" layoutY="9.0" prefHeight="31.0" prefWidth="176.0" promptText="filename" />
+                  <Label layoutX="425.0" layoutY="319.0" text="Popular Titles" />
+                  <Label layoutX="618.0" layoutY="272.0" text="Grand Total:" />
+                  <Label fx:id="lbltotal" layoutX="781.0" layoutY="272.0" />
+                  <Line endX="100.0" layoutX="764.0" layoutY="261.0" startX="-100.0" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
